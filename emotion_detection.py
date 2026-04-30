@@ -17,13 +17,7 @@ def emotion_detector(text_to_analyze):
     formatted_response = json.loads(response.text)
 
     ## Build emotion dictionary
-    result = {
-        'anger': formatted_response['emotionPredictions'][0]['emotion']['anger'],
-        'disgust': formatted_response['emotionPredictions'][0]['emotion']['disgust'],
-        'fear': formatted_response['emotionPredictions'][0]['emotion']['fear'],
-        'joy': formatted_response['emotionPredictions'][0]['emotion']['joy'],
-        'sadness': formatted_response['emotionPredictions'][0]['emotion']['sadness']
-    }
+    result = formatted_response['emotionPredictions'][0]['emotion']
 
     ## Get the dominant_emotion
     dominant_emotion = max(result, key=result.get)
